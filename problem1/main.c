@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <errno.h>
 
 #ifdef DOLOG
 #define LOG(...) fprintf(log, __VA_ARGS__);
@@ -47,7 +46,7 @@ void getArray(struct array *parr)
         size[strlen(size) -1 ] = 0;
         
     }
-    errno = 0;
+    
 
     int successItems = sscanf(size,"%d",&val);
 
@@ -60,7 +59,7 @@ void getArray(struct array *parr)
           size[strlen(size) -1 ] = 0;
          
         }
-        errno = 0;
+        
 
         int successItems = sscanf(pdata,"%d",&val);
 
