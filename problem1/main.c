@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <errno.h>
 
 #ifdef DOLOG
 #define LOG(...) fprintf(log, __VA_ARGS__);
@@ -36,12 +37,38 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
+    int val
     int *size[100];
+    int *pdata[100];
+    
+
     if (fgets(size, 100, stdin) != NULL)
     {
-
+        size[strlen(size) -1 ] = 0;
         
     }
+    errno = 0;
+
+    int successItems = sscanf(size,"%d",&val);
+
+    exit(EXIT_SUCCESS);
+
+    for(int i=0;i<size;i++)
+    {
+        if (fgets(pdata, 100, stdin) != NULL)
+        {
+          size[strlen(size) -1 ] = 0;
+         
+        }
+        errno = 0;
+
+        int successItems = sscanf(pdata,"%d",&val);
+
+        exit(EXIT_SUCCESS);
+    }
+
+
+    } 
 
 }
 
