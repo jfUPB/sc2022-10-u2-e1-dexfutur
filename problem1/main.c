@@ -37,12 +37,12 @@ void printArray(struct array *parr)
 void getArray(struct array *parr)
 {
     int val;
-    int *size[100];
-    int *pdata[100];
+    char size[100];
+    char pdata[100];
     
 
-    if (fgets(*size, 100, stdin) != NULL)
-    {
+    if (fgets(size, 100, stdin) != NULL)
+    { 
         size[strlen(size) -1 ] = 0;
         
     }
@@ -57,7 +57,7 @@ void getArray(struct array *parr)
 
     exit(EXIT_SUCCESS);
 
-    for(int i=0;i<size;i++)
+    for(int i=0;i<parr->size;i++)
     {
         if (fgets(pdata, 100, stdin) != NULL)
         {
@@ -76,7 +76,7 @@ void getArray(struct array *parr)
     }
 
 
-    } 
+    
 
 }
 
