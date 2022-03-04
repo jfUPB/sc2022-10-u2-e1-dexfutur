@@ -36,6 +36,12 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
+    int *size[100];
+    if (fgets(size, 100, stdin) != NULL)
+    {
+
+        
+    }
 
 }
 
