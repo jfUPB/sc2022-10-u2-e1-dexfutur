@@ -41,7 +41,7 @@ void getArray(struct array *parr)
     int *pdata[100];
     
 
-    if (fgets(size, 100, stdin) != NULL)
+    if (fgets(*size, 100, stdin) != NULL)
     {
         size[strlen(size) -1 ] = 0;
         
@@ -49,6 +49,11 @@ void getArray(struct array *parr)
     
 
     int successItems = sscanf(size,"%d",&val);
+    if(successItems == 1)
+    {
+        printf("val: %d\n", val);
+        
+    }
 
     exit(EXIT_SUCCESS);
 
@@ -62,6 +67,10 @@ void getArray(struct array *parr)
         
 
         int successItems = sscanf(pdata,"%d",&val);
+        if(successItems == 1)
+        {
+           printf("val: %d\n", val);
+        }
 
         exit(EXIT_SUCCESS);
     }
