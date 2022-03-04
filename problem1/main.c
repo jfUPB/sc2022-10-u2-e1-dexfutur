@@ -36,7 +36,7 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-    int val
+    int val;
     int *size[100];
     int *pdata[100];
     
