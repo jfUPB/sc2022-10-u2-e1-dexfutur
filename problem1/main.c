@@ -36,47 +36,17 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-    int val;
-    char size[100];
-    char pdata[100];
-    
+   int ArraySize;
+   scanf("%d" ,&ArraySize);
 
-    if (fgets(size, 100, stdin) != NULL)
-    { 
-        size[strlen(size) -1 ] = 0;
-        
-    }
-    
-
-    int successItems = sscanf(size,"%d",&val);
-    if(successItems == 1)
-    {
-        printf("val: %d\n", val);
-        
-    }
-
-    exit(EXIT_SUCCESS);
-
-    for(int i=0;i<parr->size;i++)
-    {
-        if (fgets(pdata, 100, stdin) != NULL)
-        {
-          size[strlen(size) -1 ] = 0;
-         
-        }
-        
-
-        int successItems = sscanf(pdata,"%d",&val);
-        if(successItems == 1)
-        {
-           printf("val: %d\n", val);
-        }
-
-        exit(EXIT_SUCCESS);
-    }
+   int Array[ArraySize];
+   for(int i=0;i<Array;i++){
+       int num;
+       scanf("%d" ,&num);
+       Array[i]=num;
+   }
 
 
-    
 
 }
 
