@@ -36,20 +36,87 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-   int ArraySize;
-   scanf("%d" ,&ArraySize);
+    int val;
+    char size[3];
+    char size2[3];
+    char pdata[3];
+    char pdata2[3];
+    char *arr1, *arr2;
+    char i;
 
-   int Array[ArraySize];
-   for(int i=0;i<Array;i++){
-       int num;
-       scanf("%d" ,&num);
-       Array[i]=num;
-   }
+    if (fgets(size, 3, stdin) != NULL)
+    { 
+        size[strlen(size) -1 ] = 0;
+        
+    }
+    
+
+    int successItems = sscanf(size,"%d",&val);
+    if(successItems == 1)
+    {
+        printf("val: %d\n", val);
+        
+    }
+
+    exit(EXIT_SUCCESS);
+
+    for(int i=0;i<parr->size;i++)
+    {
+        if (fgets(pdata, 3, stdin) != NULL)
+        {
+          size[strlen(size) -1 ] = 0;
+         
+        }
+        
+
+        int successItems = sscanf(pdata,"%d",&val);
+        if(successItems == 1)
+        {
+           printf("val: %d\n", val);
+        }
+
+        exit(EXIT_SUCCESS);
+    }
 
 
+    if (fgets(size2, 3, stdin) != NULL)
+    { 
+        size2[strlen(size2) -1 ] = 0;
+        
+    }
+    
+
+    int successItems = sscanf(size2,"%d",&val);
+    if(successItems == 1)
+    {
+        printf("val: %d\n", val);
+        
+    }
+
+    exit(EXIT_SUCCESS);
+
+    for(int i=0;i<parr->size2;i++)
+    {
+        if (fgets(pdata2, 3, stdin) != NULL)
+        {
+          size2[strlen(size2) -1 ] = 0;
+         
+        }
+        
+
+        int successItems = sscanf(pdata2,"%d",&val);
+        if(successItems == 1)
+        {
+           printf("val: %d\n", val);
+        }
+
+        exit(EXIT_SUCCESS);
+    }
+
+
+    
 
 }
-
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
 {
     
