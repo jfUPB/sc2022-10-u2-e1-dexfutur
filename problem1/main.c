@@ -36,43 +36,43 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-    int size;
+   int size;
     int size2;
     int *arr1, *arr2, *arr3;
     int i, temp;
 
     printf("arr1 \n");
     scanf("%d", &size);
-    arr1 = (int *)(calloc(size, sizeof(int)));
+    arr1 = malloc(size*sizeof(int));
     for (i = 0; i < size; i++)
     {
         scanf("%d", &temp); 
             arr1[i] = temp;
         
     }
+    struct array arrIn1;
+    arrIn1.pdata =arr1;
+    arrIn1.size = size;  
 
     printf("arr2 \n");
 
-    scanf("%d", &size2);
-    arr2 = (int *)(calloc(size2, sizeof(int))); 
-    for (i = 0; i < size2; i++)
+    scanf("%d", &size);
+    arr2 = malloc(size*sizeof(int));
+    for (i = 0; i < size; i++)
     {
         scanf("%d", &temp);
             arr2[i] = temp;
         
     }
+    struct array arrIn2;
+    arrIn2.pdata = arr2;                         
+    arrIn2.size = size;
 
-    struct array arrIn1;
-    arrIn1.pdata =arr1;
-
-    arrIn1.size = size;  
+    
     printf("printArr1 \n");
     printArray(&arrIn1);   
 
-    struct array arrIn2;
-    arrIn2.pdata = arr2; 
-                        
-    arrIn2.size = size2;  
+     
     printf("printArr2 \n");
     printArray(&arrIn2);
 
