@@ -36,83 +36,45 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-    int val;
-    char size[3];
-    char size2[3];
-    char pdata[3];
-    char pdata2[3];
-    char *arr1, *arr2;
-    char i;
+    int size;
+    int size2;
+    int *arr1, *arr2, *arr3;
+    int i, temp;
 
-    if (fgets(size, 3, stdin) != NULL)
-    { 
-        size[strlen(size) -1 ] = 0;
-        
-    }
-    
-
-    int successItems = sscanf(size,"%d",&val);
-    if(successItems == 1)
+    printf("arr1 \n");
+    scanf("%d", &size);
+    arr1 = (int *)(calloc(size, sizeof(int)));
+    for (i = 0; i < size; i++)
     {
-        printf("val: %d\n", val);
+        scanf("%d", temp); 
+            arr1[i] = temp;
         
     }
 
-    exit(EXIT_SUCCESS);
+    printf("arr2 \n");
 
-    for(int i=0;i<parr->size;i++)
+    scanf("%d", &size2);
+    arr1 = (int *)(calloc(size2, sizeof(int))); 
+    for (i = 0; i < size2; i++)
     {
-        if (fgets(pdata, 3, stdin) != NULL)
-        {
-          size[strlen(size) -1 ] = 0;
-         
-        }
-        
-
-        int successItems = sscanf(pdata,"%d",&val);
-        if(successItems == 1)
-        {
-           printf("val: %d\n", val);
-        }
-
-        exit(EXIT_SUCCESS);
-    }
-
-
-    if (fgets(size2, 3, stdin) != NULL)
-    { 
-        size2[strlen(size2) -1 ] = 0;
-        
-    }
-    
-
-    int successItems = sscanf(size2,"%d",&val);
-    if(successItems == 1)
-    {
-        printf("val: %d\n", val);
+        scanf("%d", temp);
+            arr2[i] = temp;
         
     }
 
-    exit(EXIT_SUCCESS);
+    struct array arrIn1;
+    arrIn1.pdata =arr1;
 
-    for(int i=0;i<parr->size2;i++)
-    {
-        if (fgets(pdata2, 3, stdin) != NULL)
-        {
-          size2[strlen(size2) -1 ] = 0;
-         
-        }
-        
+    arrIn1.size = size;  
+    printf("printArr1 \n");
+    printArray(&arrIn1);   
 
-        int successItems = sscanf(pdata2,"%d",&val);
-        if(successItems == 1)
-        {
-           printf("val: %d\n", val);
-        }
-
-        exit(EXIT_SUCCESS);
-    }
-
+    struct array arrIn2;
+    arrIn2.pdata = arr2; 
+                        
+    arrIn2.size = size2;  
+    printf("printArr2 \n");
+    printArray(&arrIn2);
 
     
 
