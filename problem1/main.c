@@ -36,45 +36,17 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-   int size;
-    int size2;
-    int *arr1, *arr2, *arr3;
+   int size1;
     int i, temp;
 
-    printf("arr1 \n");
-    scanf("%d", &size);
-    arr1 = malloc(size*sizeof(int));
-    for (i = 0; i < size; i++)
-    {
-        scanf("%d", &temp); 
-            arr1[i] = temp;
-        
-    }
-    struct array arrIn1;
-    arrIn1.pdata =arr1;
-    arrIn1.size = size;  
-
-    printf("arr2 \n");
-
-    scanf("%d", &size);
-    arr2 = malloc(size*sizeof(int));
-    for (i = 0; i < size; i++)
+    scanf("%d", &size1);
+    parr->pdata = (int *)calloc(size1, sizeof(int));
+    parr->size = size1;
+    for (i = 0; i < size1; i++)
     {
         scanf("%d", &temp);
-            arr2[i] = temp;
-        
+        parr->pdata[i] = temp;
     }
-    struct array arrIn2;
-    arrIn2.pdata = arr2;                         
-    arrIn2.size = size;
-
-    
-    printf("printArr1 \n");
-    printArray(&arrIn1);   
-
-     
-    printf("printArr2 \n");
-    printArray(&arrIn2);
 
     
 
@@ -82,6 +54,21 @@ void getArray(struct array *parr)
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
 {
     
+    int cont = 0;
+
+    for (int i = 0; i < arrIn1->size; i++)
+    {
+        for (int x = 0; x < arrIn2->size; x++)
+        {
+            if (arrIn1->pdata[i] == arrIn2->pdata[i])
+            {
+                arrOut->pdata[i] = arrIn1->pdata[i];
+                cont = cont + 1;
+            }
+        }
+    }
+    arrOut->size = cont;
+
 }
 
 void freeMemory(struct array *arr1, struct array *arr2, struct array *arr3)
