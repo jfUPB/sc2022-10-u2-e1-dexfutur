@@ -46,7 +46,7 @@ void getArray(struct array *parr)
     arr1 = (int *)(calloc(size, sizeof(int)));
     for (i = 0; i < size; i++)
     {
-        scanf("%d", temp); 
+        scanf("%d", &temp); 
             arr1[i] = temp;
         
     }
@@ -57,7 +57,7 @@ void getArray(struct array *parr)
     arr1 = (int *)(calloc(size2, sizeof(int))); 
     for (i = 0; i < size2; i++)
     {
-        scanf("%d", temp);
+        scanf("%d", &temp);
             arr2[i] = temp;
         
     }
