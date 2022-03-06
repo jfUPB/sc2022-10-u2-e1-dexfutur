@@ -60,10 +60,10 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
     {
         for (int x = 0; x < arrIn2->size; x++)
         {
-            if (arrIn1->pdata[i] == arrIn2->pdata[i])
+            if (arrIn1->pdata[i] == arrIn2->pdata[x])
             {
-                arrOut->pdata[i] = arrIn1->pdata[i];
-                cont = cont + 1;
+                arrOut->pdata[cont] = arrIn1->pdata[i];
+                cont ++;
             }
         }
     }
