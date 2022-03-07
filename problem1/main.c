@@ -52,29 +52,64 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
 {
     int cont = 0;
     int arrTemp[100];
-
+    int newArray1[100];
+    int newArray2[100];
     for (int i = 0; i < arrIn1->size; i++)
     {
-        for (int x = 0; x < arrIn2->size; x++)
+        for (int x = 0; x < arrIn1->size; x++)
         {
-            if (arrIn1->pdata[i] == arrIn2->pdata[x])
-            {
-                
-                arrTemp[cont] = arrIn1->pdata[i];
-                cont++; 
-                
+            if(arrIn1->pdata[i]==arrIn1->pdata[x]){
+                arrIn1->pdata[x] = -1;
             }
         }
     }
-     arrOut->pdata = (int *)calloc(cont, sizeof(int));
-     for(int i=0; i<cont;i++){
-         arrOut->pdata[i]=arrTemp[i];
-     }
-     
-    arrOut->size = cont;
-   
-}
+    for (int i = 0; i < arrIn2->size; i++)
+    {
+        for (int x = 0; x < arrIn2->size; x++)
+        {
+            if(arrIn2->pdata[i]==arrIn2->pdata[x]){
+                arrIn2->pdata[x] = -1;
+            }
+        }
+    }
+    if (arrIn1->size > arrIn2->size)
+    {
+        for (int i = 0; i < arrIn1->size; i++)
+        {
+            for (int x = 0; x < arrIn2->size; x++)
+            {
 
+                if (arrIn1->pdata[i] == arrIn2->pdata[x])
+                {
+                    arrTemp[cont] = arrIn1->pdata[i];
+                    cont++;
+                }
+            }
+        }
+    }
+    else
+    {
+        for (int i = 0; i < arrIn2->size; i++)
+        {
+            for (int x = 0; x < arrIn1->size; x++)
+            {
+                if (arrIn2->pdata[i] == arrIn2->pdata[x])
+                {
+
+                    arrTemp[cont] = arrIn2->pdata[i];
+                    cont++;
+                }
+            }
+        }
+    }
+    arrOut->pdata = (int *)calloc(cont, sizeof(int));
+    for (int i = 0; i < cont; i++)
+    {
+        arrOut->pdata[i] = arrTemp[i];
+    }
+
+    arrOut->size = cont;
+}
 void freeMemory(struct array *arr1, struct array *arr2, struct array *arr3)
 {
     free(arr1->pdata);
