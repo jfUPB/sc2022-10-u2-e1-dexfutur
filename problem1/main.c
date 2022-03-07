@@ -36,7 +36,7 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-    int size1;
+   int size1;
     int i, temp;
 
     scanf("%d", &size1);
@@ -47,10 +47,11 @@ void getArray(struct array *parr)
         scanf("%d", &temp);
         parr->pdata[i] = temp;
     }
+    
 }
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
 {
-    int cont = 0;
+  int cont = 0;
     int arrTemp[100];
     
     for (int i = 0; i < arrIn1->size; i++)
@@ -79,7 +80,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
             for (int x = 0; x < arrIn2->size; x++)
             {
 
-                if (arrIn1->pdata[i] == arrIn2->pdata[x])
+                if (arrIn1->pdata[i] == arrIn2->pdata[x] && arrIn1->pdata[i]!=-1)
                 {
                     arrTemp[cont] = arrIn1->pdata[i];
                     cont++;
@@ -93,7 +94,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
         {
             for (int x = 0; x < arrIn1->size; x++)
             {
-                if (arrIn2->pdata[i] == arrIn2->pdata[x])
+                if (arrIn2->pdata[i] == arrIn2->pdata[x]&& arrIn2->pdata[i]!=-1)
                 {
 
                     arrTemp[cont] = arrIn2->pdata[i];
