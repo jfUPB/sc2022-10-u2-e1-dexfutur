@@ -111,7 +111,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
             }
         }
     }
-    
+
     arrOut->pdata = (int *)calloc(cont, sizeof(int));
     for (int i = 0; i < cont; i++)
     {
@@ -119,6 +119,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
     }
 
     arrOut->size = cont;
+    
 
 }
 void freeMemory(struct array *arr1, struct array *arr2, struct array *arr3)
