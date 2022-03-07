@@ -79,8 +79,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
 
 
 
-    if (arrIn1->size > arrIn2->size)
-    {
+    
         for (int i = 0; i < arrIn1->size; i++)
         {
             for (int x = 0; x < arrIn2->size; x++)
@@ -93,24 +92,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
                 }
             }
         }
-    }
 
-
-    else
-    {
-        for (int i = 0; i < arrIn2->size; i++)
-        {
-            for (int x = 0; x < arrIn1->size; x++)
-            {
-                if (arrIn2->pdata[i] == arrIn2->pdata[x]&& arrIn2->pdata[i]!=-1)
-                {
-
-                    arrTemp[cont] = arrIn2->pdata[i];
-                    cont++;
-                }
-            }
-        }
-    }
 
     arrOut->pdata = (int *)calloc(cont, sizeof(int));
     for (int i = 0; i < cont; i++)
@@ -119,7 +101,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
     }
 
     arrOut->size = cont;
-    
+
 
 }
 void freeMemory(struct array *arr1, struct array *arr2, struct array *arr3)
