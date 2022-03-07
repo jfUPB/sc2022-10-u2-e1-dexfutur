@@ -52,26 +52,26 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
 {
     int cont = 0;
     int arrTemp[100];
-    int newArray1[100];
-    int newArray2[100];
+    
     for (int i = 0; i < arrIn1->size; i++)
     {
-        for (int x = 0; x < arrIn1->size; x++)
+        for (int x = i+1; x < arrIn1->size; x++)
         {
             if(arrIn1->pdata[i]==arrIn1->pdata[x]){
                 arrIn1->pdata[x] = -1;
-            }
+            }   
         }
     }
     for (int i = 0; i < arrIn2->size; i++)
     {
-        for (int x = 0; x < arrIn2->size; x++)
+        for (int x = i+1; x < arrIn2->size; x++)
         {
             if(arrIn2->pdata[i]==arrIn2->pdata[x]){
                 arrIn2->pdata[x] = -1;
             }
         }
     }
+
     if (arrIn1->size > arrIn2->size)
     {
         for (int i = 0; i < arrIn1->size; i++)
