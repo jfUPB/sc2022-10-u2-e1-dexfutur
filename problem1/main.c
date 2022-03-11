@@ -36,14 +36,74 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-    
-}
 
+    int size1;
+    int i, temp;
+
+
+    scanf("%d", &size1);
+    parr->pdata = (int *)calloc(size1, sizeof(int));
+    parr->size = size1;
+    for (i = 0; i < size1; i++)
+    {
+        scanf("%d", &temp);
+        parr->pdata[i] = temp;
+    }
+
+}
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
 {
+    int cont = 0;
+    int arrTemp[100];
     
-}
+    for (int i = 0; i < arrIn1->size; i++)
+    {
+        for (int x = i+1; x < arrIn1->size; x++)
+        {
+            if(arrIn1->pdata[i]==arrIn1->pdata[x]){
+                arrIn1->pdata[x] = -1;
+            }   
+        }
+    }
 
+
+    for (int i = 0; i < arrIn2->size; i++)
+    {
+        for (int x = i+1; x < arrIn2->size; x++)
+        {
+            if(arrIn2->pdata[i]==arrIn2->pdata[x]){
+                arrIn2->pdata[x] = -1;
+            }
+        }
+    }
+
+
+
+    
+        for (int i = 0; i < arrIn1->size; i++)
+        {
+            for (int x = 0; x < arrIn2->size; x++)
+            {
+
+                if (arrIn1->pdata[i] == arrIn2->pdata[x] && arrIn1->pdata[i]!=-1)
+                {
+                    arrTemp[cont] = arrIn1->pdata[i];
+                    cont++;
+                }
+            }
+        }
+
+
+    arrOut->pdata = (int *)calloc(cont, sizeof(int));
+    for (int i = 0; i < cont; i++)
+    {
+        arrOut->pdata[i] = arrTemp[i];
+    }
+
+    arrOut->size = cont;
+
+
+}
 void freeMemory(struct array *arr1, struct array *arr2, struct array *arr3)
 {
     free(arr1->pdata);
